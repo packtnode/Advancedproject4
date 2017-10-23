@@ -8,7 +8,7 @@ const express = require('express'),
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/profile',(req,res)=> res.render('index'));
+app.get('/',(req,res)=> res.render('index'));
 
 app.listen(port,(err)=>{
         if(!err){
