@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mohammad</title>
+    <title><%= user.name %></title>
     <link rel='stylesheet' href='/style.css' />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nova+Flat" rel="stylesheet">
@@ -9,13 +9,13 @@
 </head>
 <body>	
 	<div class="header">
-		<h1 class="header-item header-item-one">Profile Template App</h1>
+		<% include ./layouts/logo %>
 		<span class="header-item">
-			<a href="/">Profile</a>
+			<a href="/">Home</a>
 		</span>
 	</div>
-	<h2 class="user-name">Mohammad</h2>
-	<img class="user-pic" src="https://media-exp1.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAsdAAAAJGIzZWEyNTdhLTk1NDItNGYxMi1iMmFkLTQwYzI1OGJlOTVhOQ.jpg" alt="user profile image"/>
+	<h2 class="user-name"><%= user.name %></h2>
+	<img class="user-pic" src=<%= user.img %> alt="user profile image"/>
 
 	<div class="user-info">
 		<h3>User Info</h3>
@@ -25,12 +25,17 @@
 	</div>
 
 	<h3>Friends</h3>
-	<ul>
-		<li>Robert</li>
-		<li>Sara</li>
-		<li>Tom</li>
-		<li>Pat</li>
-	</ul>
+	<% if(user.friends){ %>
+		<ul>
+			<% user.friends.forEach((friend)=>{ %>
+				<li><%= friend %></li>
+			<% }) %>
+		</ul>
+	<% }else{ %>
+		<button class="find-friends">Find friends</button>
+		<br/>
+		<br>
+	<% } %>
     <script src='/script.js'></script>
 </body>
 </html>

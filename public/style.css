@@ -32,3 +32,11 @@ ul{
 	font-family: 'Nova Flat', cursive;
 	color: #e74c3c;
 }
+.find-friends{
+	background: #3498db;
+	color: white;
+	padding: 20px;
+	border-radius: 5px;
+	border: 2px solid #3498db;
+	font-size: 1.5em;
+}
